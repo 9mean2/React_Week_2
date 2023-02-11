@@ -1,3 +1,8 @@
+![meme-lang](https://user-images.githubusercontent.com/122663756/218253470-709df5cb-97f1-44f5-858c-c2bc2ff428cd.gif)
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
