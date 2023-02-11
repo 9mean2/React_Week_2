@@ -13,12 +13,30 @@ const StBox = styled.div`
   margin: 20px;
 `;
 
+// 박스의 색
+const boxList = ["red", "blue", "green", "black"];
+
+// 색을 넣으면 이름을 반환
+const getBoxName = (color) => {
+  switch (color) {
+    case "red":
+      return "빨간박스";
+    case "green":
+      return "초록박스";
+    case "blue":
+      return "파란박스";
+    default:
+      return "검정박스";
+  }
+};
+
 function App() {
   return (
     <StContainer>
-      <StBox borderColor="red">빨간박스</StBox>
-      <StBox borderColor="blue">파란박스</StBox>
-      <StBox borderColor="green">초록박스</StBox>
+      {/* <StBox borderColor="red">빨간박스</StBox> */}
+      {boxList.map((box) => {
+        return <StBox borderColor={box}>{getBoxName(box)}</StBox>;
+      })}
     </StContainer>
   );
 }
