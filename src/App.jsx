@@ -9,6 +9,7 @@ function App() {
   //화면이 렌더링 될 때 어떤 작업을 하고 싶다 : useEffect
 
   useEffect(() => {
+    idRef.current.focus();
     // idRef.current.focus();
   }, []);
 
@@ -21,14 +22,15 @@ function App() {
   return (
     <>
       <div>
-        아이디 :{" "}
+        아이디 :
         <input
           value={id}
           onChange={(event) => {
             setId(event.target.value);
           }}
           type="text"
-        />{" "}
+          ref={idRef}
+        />
       </div>
       <div>
         비밀번호 : <input ref={pwRef} type="password" />
@@ -36,5 +38,4 @@ function App() {
     </>
   );
 }
-
 export default App;
