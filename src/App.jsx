@@ -1,34 +1,35 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function App() {
-  const [number, setNumber] = useState(0);
+  const [value, setvalue] = useState("");
+
+  // clean up
+  useEffect(() => {
+    console.log(`hello world : ${value}`);
+
+    // return () => {
+    //   //
+    //   console.log("바이바이");
+    // };
+  }, [value]);
 
   return (
-    <>
-      <div>Number State : {number}</div>;
-      <button
-        onClick={() => {
-          //기존 업데이트
-          //배치성으로 처리된다 , 배치 업데이트.
+    <div>
+      {/* 1. input에 값을 입력 */
+      /* 2. value, 즉 state가 변경 */
+      /* 3. state가 바뀌었기 때문에 -> App 컴포넌트가 리렌더링
+      4. 리렌더링 -> useEffect()
+      5. 1~4가 반복 */
+      /* Dependency Array} */}
 
-          // setNumber(number + 1);
-          // setNumber(number + 1);
-          // setNumber(number + 1);
-
-          // 렌더링이 잦다 -> 성능에 이슈가 있는 것 !
-
-          // 함수형 업데이트
-
-          setNumber((currentNumber) => currentNumber + 1);
-          setNumber((currentNumber) => currentNumber + 1);
-          setNumber((currentNumber) => currentNumber + 1);
+      <input
+        type="text"
+        value={value}
+        onChange={(event) => {
+          setvalue(event.target.value);
         }}
-      >
-        {" "}
-        누르면up
-      </button>
-    </>
+      />
+    </div>
   );
 }
 
