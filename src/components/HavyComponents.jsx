@@ -26,5 +26,4 @@ function HavyComponents() {
     </>
   );
 }
-
 export default HavyComponents;
