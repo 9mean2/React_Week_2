@@ -8,7 +8,7 @@ function HavyComponents() {
     return 100;
   };
 
-  const value = heavyWork();
+  const value = useMemo(() => heavyWork(), []);
   console.log(`value는 ${value}입니다`);
 
   return (
