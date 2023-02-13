@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import Box1 from "./components/Box1";
 import Box2 from "./components/Box2";
 import Box3 from "./components/Box3";
@@ -19,9 +19,9 @@ function App() {
 
   // counst 초기화해주는 함수
 
-  const initCount = () => {
+  const initCount = useCallback(() => {
     setCount(0);
-  };
+  }, []);
 
   return (
     <>
