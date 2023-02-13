@@ -17,6 +17,12 @@ function App() {
     setCount(count - 1);
   };
 
+  // counst 초기화해주는 함수
+
+  const initCount = () => {
+    setCount(0);
+  };
+
   return (
     <>
       <h3>카운트 예제입니다! ! ! </h3>
@@ -29,7 +35,7 @@ function App() {
           marginTop: "10px",
         }}
       >
-        <Box1 />
+        <Box1 initCount={initCount} />
         <Box2 />
         <Box3 />
       </div>
