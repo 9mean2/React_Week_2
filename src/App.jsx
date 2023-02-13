@@ -20,8 +20,9 @@ function App() {
   // counst 초기화해주는 함수
 
   const initCount = useCallback(() => {
+    console.log(`${count}에서 0으로 변경되었습니다.`);
     setCount(0);
-  }, []);
+  }, [count]);
 
   return (
     <>
