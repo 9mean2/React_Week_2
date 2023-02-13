@@ -1,29 +1,52 @@
-import React, { useState, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
-function HavyComponents() {
-  const [count, setCount] = useState(0);
+function ObjectComponent() {
+  const [isAlive, setIsAlive] = useState(true);
+  const [uselessCount, setUselessCount] = useState(0);
 
-  const heavyWork = () => {
-    for (let i = 0; i < 1000000000; i++) {}
-    return 100;
-  };
+  const me = useMemo(() => {
+    return {
+      name: "Ted Chang",
+      age: 21,
+      isAlive: isAlive ? "생존" : "사망",
+    };
+  }, [isAlive]);
 
-  const value = useMemo(() => heavyWork(), []);
-  console.log(`value는 ${value}입니다`);
+  useEffect(() => {
+    console.log("생존여부가 바뀔 때만 호출해주세요!");
+  }, [me]);
 
   return (
     <>
-      <p>나는 엄청 무거운 컴포넌트야</p>
+      <div>
+        내 이름은 {me.name}이구, 나이는 {me.age}야!
+      </div>
+      <br />
+      <div>
+        <button
+          onClick={() => {
+            setIsAlive(!isAlive);
+          }}
+        >
+          누르면 살았다가 죽었다가 해요
+        </button>
+        <br />
+        생존여부 : {me.isAlive}
+      </div>
+      <hr />
+      필요없는 숫자 영역이에요!
+      <br />
+      {uselessCount}
+      <br />
       <button
         onClick={() => {
-          setCount(count + 1);
+          setUselessCount(uselessCount + 1);
         }}
       >
-        누르면 아래 count가 올라가요
+        누르면 숫자가 올라가요
       </button>
-      <br />
-      {count} <br />
     </>
   );
 }
-export default HavyComponents;
+
+export default ObjectComponent;
