@@ -2,8 +2,13 @@
 
 import { createStore } from "redux";
 import { combineReducers } from "redux";
+import counter from "../modules/counter";
+import users from "../modules/users";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  counter,
+  users: users,
+});
 
 const store = createStore(rootReducer);
 
