@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -9,9 +10,37 @@ function App() {
     return state.counter;
   });
 
-  console.log("counter", counter.number);
+  // dispatch 가져오자
 
-  return <div>Redux!</div>;
+  const dispatch = useDispatch();
+
+  console.log("counter ->", counter.number);
+
+  return (
+    <>
+      <div>현재 카운트 : {counter.number}</div>;
+      <button
+        onClick={() => {
+          // +1 을 해주는 로직을 써주면 된다
+          dispatch({
+            type: "PLUS_ONE",
+          });
+        }}
+      >
+        +
+      </button>
+      <button
+        onClick={() => {
+          // +1 을 해주는 로직을 써주면 된다
+          dispatch({
+            type: "MINUS_ONE",
+          });
+        }}
+      >
+        +
+      </button>
+    </>
+  );
 }
 
 export default App;
